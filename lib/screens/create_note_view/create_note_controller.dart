@@ -41,6 +41,8 @@ class CreateNoteController extends GetxController with CreateVariables {
   ///   desc: The "desc" parameter is the updated description of the note. It is used to update the
   /// description of a note in the "updateNote" function.
   updateNote(title, desc) async {
+    var isNetwork = await CommonWidgetFuncions.checkNetworkConnectivity();
+    isNetworkAvailable.value = isNetwork;
     if (isNetworkAvailable.value == false) {
       CommonWidgetFuncions.showAlertSnackbar(AppStrings.networkUnAvailable);
     } else {
@@ -72,6 +74,8 @@ class CreateNoteController extends GetxController with CreateVariables {
   ///   title: The title of the note that needs to be saved.
   ///   desc: The "desc" parameter is the description or content of the note that you want to save.
   saveNewNote(context, title, desc) async {
+    var isNetwork = await CommonWidgetFuncions.checkNetworkConnectivity();
+    isNetworkAvailable.value = isNetwork;
     if (isNetworkAvailable.value == false) {
       CommonWidgetFuncions.showAlertSnackbar(AppStrings.networkUnAvailable);
     } else {

@@ -146,11 +146,17 @@ class HomeView extends GetView<HomeController> {
   bodyView() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
-      child: ListView.builder(
-        itemCount: controller.notesList.length,
-        itemBuilder: ((context, index) {
-          return noteCardWidget(controller.notesList[index]);
-        }),
+      child: RefreshIndicator(
+        onRefresh: () async {
+          await controller.getAllNotes();
+          await Future.delayed(const Duration(seconds: 1));
+        },
+        child: ListView.builder(
+          itemCount: controller.notesList.length,
+          itemBuilder: ((context, index) {
+            return noteCardWidget(controller.notesList[index]);
+          }),
+        ),
       ),
     );
   }
