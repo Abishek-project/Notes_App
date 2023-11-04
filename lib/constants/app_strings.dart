@@ -12,4 +12,6 @@ class AppStrings {
   static String searchHintText = "Search by the keyword...";
   static String searchEmptyText = "File not found. Try searching again.";
   static String madeBy = "Made by";
+  static String networkUnAvailable = "Network not available";
+  static String someThingWentWrong = "Something Went Wrong";
 }

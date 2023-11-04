@@ -8,4 +8,7 @@ class AppAssets {
   static const addIcon = "assets/addIcon.svg";
   static const emptyNote = "assets/emptyNoteView.png";
   static const emptySearch = "assets/emptySearchIcon.png";
+  static const delete = "assets/delete.svg";
+  static const infoDark = "assets/infoDark.svg";
+  static const closeIcon = "assets/closeIcon.svg";
 }
