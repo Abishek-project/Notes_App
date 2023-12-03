@@ -14,7 +14,10 @@ class MenuButton extends StatelessWidget {
       decoration: BoxDecoration(
           color: AppColors.darkGrey, borderRadius: BorderRadius.circular(15)),
       child: Center(
-        child: SvgPicture.asset(icon),
+        child: SvgPicture.asset(
+          icon,
+          color: AppColors.appWhite,
+        ),
       ),
     );
   }

@@ -48,7 +48,7 @@ class CreateNoteController extends GetxController with CreateVariables {
     } else {
       CommonWidgetFuncions.showOverlayLoader();
       http.Response response =
-          await noteServices.updateNote(note.value["id"], title, desc);
+          await noteServices.updateNote(note.value["_id"], title, desc);
       if (response != null && response.statusCode == 200 ||
           response.statusCode == 201) {
         Get.back();

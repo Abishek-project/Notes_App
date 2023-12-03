@@ -23,8 +23,10 @@ class NoteServices {
 
     try {
       var body = {"title": noteTitle, "description": noteDescription};
-      http.Response response = await http.post(Uri.parse(ApiUrls.baseUrl),
-          body: jsonEncode(body), headers: header);
+      http.Response response = await http.post(
+          Uri.parse("${ApiUrls.baseUrl}create-note"),
+          body: jsonEncode(body),
+          headers: header);
       return response;
     } catch (e) {
       CommonWidgetFuncions.showAlertSnackbar(e.toString());
@@ -40,8 +42,8 @@ class NoteServices {
     Map<String, String>? header = {};
     header["Content-Type"] = "application/json";
     try {
-      http.Response response =
-          await http.get(Uri.parse(ApiUrls.baseUrl), headers: header);
+      http.Response response = await http
+          .get(Uri.parse("${ApiUrls.baseUrl}get-all-notes"), headers: header);
       return response;
     } catch (e) {
       CommonWidgetFuncions.showAlertSnackbar(e.toString());
@@ -67,7 +69,7 @@ class NoteServices {
       var body = {"title": noteTitle, "description": noteDescription};
 
       http.Response response = await http.put(
-          Uri.parse("${ApiUrls.baseUrl}/$id"),
+          Uri.parse("${ApiUrls.baseUrl}update-note/$id"),
           body: jsonEncode(body),
           headers: header);
       return response;
@@ -89,8 +91,9 @@ class NoteServices {
     Map<String, String>? header = {};
     header["Content-Type"] = "application/json";
     try {
-      http.Response response = await http
-          .delete(Uri.parse("${ApiUrls.baseUrl}/$id"), headers: header);
+      http.Response response = await http.delete(
+          Uri.parse("${ApiUrls.baseUrl}delete-note/$id"),
+          headers: header);
       return response;
     } catch (e) {
       CommonWidgetFuncions.showAlertSnackbar(e.toString());

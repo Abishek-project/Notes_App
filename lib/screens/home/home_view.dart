@@ -48,6 +48,7 @@ class HomeView extends GetView<HomeController> {
               child: Center(
                 child: SvgPicture.asset(
                   AppAssets.addIcon,
+                  color: AppColors.black,
                   height: 20,
                   width: 20,
                 ),
@@ -83,7 +84,7 @@ class HomeView extends GetView<HomeController> {
             Text(
               AppStrings.notes,
               style: GoogleFonts.nunito(
-                  color: AppColors.appWhite,
+                  color: AppColors.darkGrey,
                   fontSize: 43,
                   fontWeight: FontWeight.w600),
             ),
@@ -178,7 +179,7 @@ class HomeView extends GetView<HomeController> {
   /// condition.
   noteCardWidget(data, {bool isSearch = false}) {
     return Padding(
-      padding: const EdgeInsets.only(left: 24.0, right: 24, top: 24),
+      padding: const EdgeInsets.only(left: 20.0, right: 20, top: 24),
       child: InkWell(
         onLongPress: () {
           if (isSearch == false) {
@@ -187,32 +188,45 @@ class HomeView extends GetView<HomeController> {
           }
         },
         onTap: () async {
-          if (controller.isNoteSelected.value["id"] == data["id"]) {
+          if (controller.isNoteSelected.value["_id"] == data["_id"]) {
             await controller.deleteNote(data);
           } else {
             Get.toNamed(AppPaths.viewNote, arguments: data);
           }
         },
-        child: Container(
-          decoration: BoxDecoration(
-              color: controller.isNoteSelected.value.isNotEmpty &&
-                      controller.isNoteSelected["id"] == data["id"]
-                  ? AppColors.appRed
-                  : controller.getRandomColor(),
-              borderRadius: BorderRadius.circular(15)),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: controller.isNoteSelected.value.isNotEmpty &&
-                      controller.isNoteSelected["id"] == data["id"]
-                  ? SvgPicture.asset(AppAssets.delete)
-                  : Text(
-                      data["title"] ?? "",
-                      style: GoogleFonts.nunito(
-                          color: AppColors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
-                    ),
+        child: Card(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+                bottomRight: Radius.circular(
+                    20)), // Adjust the border radius for rounded corners
+          ),
+          elevation: 2,
+          child: Container(
+            decoration: BoxDecoration(
+                color: controller.isNoteSelected.value.isNotEmpty &&
+                        controller.isNoteSelected["_id"] == data["_id"]
+                    ? AppColors.appRed
+                    : const Color(0xFF3498DB),
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(20))),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: controller.isNoteSelected.value.isNotEmpty &&
+                        controller.isNoteSelected["_id"] == data["_id"]
+                    ? SvgPicture.asset(AppAssets.delete)
+                    : Text(
+                        data["title"] ?? "",
+                        style: GoogleFonts.nunito(
+                            color: AppColors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600),
+                      ),
+              ),
             ),
           ),
         ),
@@ -244,7 +258,7 @@ class HomeView extends GetView<HomeController> {
           title: Text(
             AppStrings.madeBy,
             style: GoogleFonts.nunito(
-              color: AppColors.lightGrey02,
+              color: AppColors.black,
               fontSize: 15,
               fontWeight: FontWeight.w400,
             ),
@@ -252,7 +266,7 @@ class HomeView extends GetView<HomeController> {
           content: Text(
             "Abishek",
             style: GoogleFonts.nunito(
-              color: AppColors.lightGrey01,
+              color: AppColors.black,
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),

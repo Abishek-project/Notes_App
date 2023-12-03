@@ -56,14 +56,14 @@ class SearchView extends GetView<SearchViewController> {
             ),
           ),
         ),
-        Expanded(
-          child:
-              controller.isSearchNote.value && controller.searchNoteList.isEmpty
+        Obx(() => Expanded(
+              child: !controller.isSearchNote.value &&
+                      controller.searchNoteList.isEmpty
                   ? emptysearchView()
                   : controller.searchNoteList.isNotEmpty
                       ? searchNoteListView()
                       : Container(),
-        )
+            ))
       ],
     );
   }
@@ -93,7 +93,7 @@ class SearchView extends GetView<SearchViewController> {
         isDense: true,
         hintText: AppStrings.searchHintText,
         hintStyle: GoogleFonts.nunito(
-          color: AppColors.lightGrey01,
+          color: AppColors.appWhite,
           fontSize: 20,
           fontWeight: FontWeight.w300,
         ),
@@ -139,9 +139,9 @@ class SearchView extends GetView<SearchViewController> {
           Text(
             AppStrings.searchEmptyText,
             style: GoogleFonts.nunito(
-                color: AppColors.appWhite,
+                color: AppColors.black,
                 fontSize: 20,
-                fontWeight: FontWeight.w300),
+                fontWeight: FontWeight.w600),
           )
         ],
       ),

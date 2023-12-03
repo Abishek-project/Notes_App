@@ -89,6 +89,7 @@ class NoteIndividualView extends GetView<NoteIndividualViewController> {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       noteTitle(),
                       const SizedBox(
@@ -113,7 +114,7 @@ class NoteIndividualView extends GetView<NoteIndividualViewController> {
     return Text(
       controller.noteDescription.value,
       style: GoogleFonts.nunito(
-          color: AppColors.appWhite, fontSize: 23, fontWeight: FontWeight.w400),
+          color: AppColors.darkGrey, fontSize: 23, fontWeight: FontWeight.w400),
     );
   }
 
@@ -128,7 +129,7 @@ class NoteIndividualView extends GetView<NoteIndividualViewController> {
     return Text(
       controller.noteTitle.value,
       style: GoogleFonts.nunito(
-          color: AppColors.appWhite, fontSize: 35, fontWeight: FontWeight.w400),
+          color: AppColors.darkGrey, fontSize: 35, fontWeight: FontWeight.w400),
     );
   }
 }

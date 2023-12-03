@@ -27,7 +27,9 @@ class HomeController extends GetxController with HomeVariables {
       if (response != null && response.statusCode == 200 ||
           response.statusCode == 201) {
         final body = json.decode(response.body);
+        print(body);
         notesList.value = body["data"];
+        print(notesList);
         Get.back();
       } else {
         Get.back();
@@ -57,7 +59,7 @@ class HomeController extends GetxController with HomeVariables {
       CommonWidgetFuncions.showAlertSnackbar(AppStrings.networkUnAvailable);
     } else {
       CommonWidgetFuncions.showOverlayLoader();
-      http.Response response = await noteServices.deleteNote(note["id"]);
+      http.Response response = await noteServices.deleteNote(note["_id"]);
       if (response != null && response.statusCode == 200 ||
           response.statusCode == 201) {
         notesList.remove(note);

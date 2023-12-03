@@ -84,9 +84,11 @@ class CreateNoteView extends GetView<CreateNoteController> {
           TextFormField(
             autofocus: true,
             controller: controller.noteTitleController,
-            cursorColor: Colors.white,
+            cursorColor: AppColors.darkGrey,
             style: GoogleFonts.nunito(
-                color: Colors.white, fontSize: 35, fontWeight: FontWeight.w400),
+                color: AppColors.darkGrey,
+                fontSize: 35,
+                fontWeight: FontWeight.w400),
             maxLines: null,
             decoration: InputDecoration(
                 hintStyle: GoogleFonts.nunito(
@@ -101,9 +103,11 @@ class CreateNoteView extends GetView<CreateNoteController> {
           ),
           TextFormField(
             controller: controller.noteDescriptionController,
-            cursorColor: Colors.white,
+            cursorColor: AppColors.darkGrey,
             style: GoogleFonts.nunito(
-                color: Colors.white, fontSize: 23, fontWeight: FontWeight.w400),
+                color: AppColors.darkGrey,
+                fontSize: 23,
+                fontWeight: FontWeight.w400),
             maxLines: null,
             textInputAction: TextInputAction.newline,
             decoration: InputDecoration(
@@ -121,21 +125,24 @@ class CreateNoteView extends GetView<CreateNoteController> {
 
   showAlertDialog(bool isNoteDisCard, context) {
     return showDialog(
-      barrierColor: AppColors.lightGrey.withOpacity(0.2),
+      barrierColor: Colors.white60,
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: AppColors.darkGrey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
-          icon: SvgPicture.asset(AppAssets.infoDark),
+          icon: SvgPicture.asset(
+            AppAssets.infoDark,
+            color: AppColors.appWhite,
+          ),
           content: Text(
             isNoteDisCard
                 ? AppStrings.deleteDescription
                 : AppStrings.saveChanges,
             style: GoogleFonts.nunito(
-                color: AppColors.lightGrey02,
+                color: AppColors.appWhite,
                 fontSize: 23,
                 fontWeight: FontWeight.w400),
             textAlign: TextAlign.center,
@@ -164,7 +171,7 @@ class CreateNoteView extends GetView<CreateNoteController> {
                       style: GoogleFonts.nunito(
                           color: AppColors.appWhite,
                           fontSize: 18,
-                          fontWeight: FontWeight.w400),
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -198,7 +205,7 @@ class CreateNoteView extends GetView<CreateNoteController> {
                       style: GoogleFonts.nunito(
                           color: AppColors.appWhite,
                           fontSize: 18,
-                          fontWeight: FontWeight.w400),
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
