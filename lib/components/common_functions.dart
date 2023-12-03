@@ -27,14 +27,15 @@ class CommonWidgetFuncions {
   /// of the screen.
   static Future<void> showOverlayLoader() async {
     showDialog(
+      barrierColor: Colors.white60,
       context: Get.context!,
       barrierDismissible: true,
       builder: (_) => WillPopScope(
         onWillPop: () async => false,
-        child: Center(
-            child: SpinKitWave(
-          size: 30,
-          color: AppColors.blue,
+        child: const Center(
+            child: SpinKitFadingCircle(
+          size: 45,
+          color: Color(0xFF3498DB),
         )),
       ),
     );

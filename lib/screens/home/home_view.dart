@@ -31,10 +31,10 @@ class HomeView extends GetView<HomeController> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black38,
-                  offset: Offset(-5, 0),
-                  blurRadius: 10,
-                  spreadRadius: 1,
+                  color: Color(0xFF3498DB),
+                  offset: Offset(-1, 0),
+                  blurRadius: 8,
+                  spreadRadius: 2,
                 ),
               ],
             ),
@@ -77,7 +77,7 @@ class HomeView extends GetView<HomeController> {
     return PreferredSize(
       preferredSize: const Size.fromHeight(70.0),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -179,7 +179,7 @@ class HomeView extends GetView<HomeController> {
   /// condition.
   noteCardWidget(data, {bool isSearch = false}) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20, top: 24),
+      padding: const EdgeInsets.only(left: 20.0, right: 20, top: 20),
       child: InkWell(
         onLongPress: () {
           if (isSearch == false) {
@@ -198,9 +198,9 @@ class HomeView extends GetView<HomeController> {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+                topRight: Radius.circular(28),
                 bottomRight: Radius.circular(
-                    20)), // Adjust the border radius for rounded corners
+                    28)), // Adjust the border radius for rounded corners
           ),
           elevation: 2,
           child: Container(
@@ -211,8 +211,8 @@ class HomeView extends GetView<HomeController> {
                     : const Color(0xFF3498DB),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                    bottomRight: Radius.circular(20))),
+                    topRight: Radius.circular(28),
+                    bottomRight: Radius.circular(28))),
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(30.0),
